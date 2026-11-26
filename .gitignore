@@ -1,0 +1,5 @@
+.DS_Store
+*.log
+.antigravity-pro*-home/
+.antigravity-ultra-home/
+.keychain_secret
