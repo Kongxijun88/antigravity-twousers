@@ -6,7 +6,7 @@
 
 <p align="center">
   <b>Gestor de Instancias Duales y Triples con Sandbox Físico para Google Antigravity en macOS (Pro 1 · Pro 2 · Ultra)</b><br>
-  Supera los límites de 5 horas con cero colisión de cuentas, llavero dinámico de 256 bits y ejecución paralela real.
+  Supera los límites de 5 horas · Llavero Dinámico de 256 Bits · Enrutador Inteligente de Callbacks OAuth · Ejecución Paralela
 </p>
 
 <p align="center">
@@ -22,8 +22,9 @@
 <p align="center">
   <a href="https://apple.com"><img src="https://img.shields.io/badge/macOS-14%2B%20(Apple%20Silicon%20%26%20Intel)-000000?style=flat-square&logo=apple&logoColor=white" alt="macOS"></a>
   <img src="https://img.shields.io/badge/Instances-Pro%201%20%7C%20Pro%202%20%7C%20Ultra-6366F1?style=flat-square" alt="Instances">
+  <img src="https://img.shields.io/badge/OAuth%20Router-Smart%20Callback%20Routing-EC4899?style=flat-square" alt="Smart Router">
   <img src="https://img.shields.io/badge/Keychain-256--Bit%20Dynamic%20Secret-10B981?style=flat-square&logo=letsencrypt&logoColor=white" alt="Security">
-  <img src="https://img.shields.io/badge/Shell-Bash%20%7C%20AppleScript-22D3EE?style=flat-square&logo=gnubash&logoColor=black" alt="Shell">
+  <img src="https://img.shields.io/badge/Stack-Swift%20%7C%20Bash%20%7C%20AppleScript-22D3EE?style=flat-square&logo=swift&logoColor=black" alt="Stack">
   <a href="../LICENSE"><img src="https://img.shields.io/badge/License-MIT-F59E0B?style=flat-square" alt="License"></a>
 </p>
 
@@ -31,6 +32,7 @@
   <a href="#-aspectos-destacados">✨ Destacados</a> •
   <a href="#-comparativa">⚖️ Comparativa</a> •
   <a href="#-arquitectura-de-sandbox-físico">🏗️ Arquitectura</a> •
+  <a href="#-enrutador-inteligente-de-callbacks-oauth">🧭 Enrutador OAuth</a> •
   <a href="#-instalación-rápida">🚀 Instalación</a> •
   <a href="#-protocolo-de-relevo-multi-agente">🔄 Protocolo de Relevo</a> •
   <a href="#-seguridad-y-privacidad">🛡️ Seguridad</a> •
@@ -48,26 +50,26 @@
       Redirige tanto <code>$HOME</code> como <code>--user-data-dir</code> de Electron, separando por completo la caché de interfaz y el backend Go <code>language_server</code>.
     </td>
     <td width="33%" valign="top">
-      <h3>🔐 Llavero Dinámico de 256 Bits</h3>
-      Genera localmente una clave criptográfica única mediante <code>openssl rand -hex 32</code> con permisos <code>chmod 600</code>. Cero contraseñas fijas en el código.
+      <h3>🧭 Enrutador Inteligente OAuth</h3>
+      <b>Antigravity Router</b> en Swift nativo intercepta <code>antigravity://</code> tras autorizar en el navegador y vuelve exactamente a la ventana Pro 2 / Ultra que inició sesión.
     </td>
     <td width="33%" valign="top">
-      <h3>♾️ Renovación Silenciosa 24/7</h3>
-      Elimina el bloqueo por inactividad de 5 minutos del Llavero CLI de macOS para que las renovaciones OAuth cada hora nunca fallen.
+      <h3>🔐 Llavero Dinámico de 256 Bits</h3>
+      Genera localmente una clave criptográfica única mediante <code>openssl rand -hex 32</code> con permisos <code>chmod 600</code>. Cero contraseñas fijas.
     </td>
   </tr>
   <tr>
     <td width="33%" valign="top">
-      <h3>🚀 Instancias Duales y Triples</h3>
-      Instaladores en un clic para <b>Pro 2</b> y <b>Ultra (Instancia 3)</b>: ejecuta hasta 3 cuentas independientes en paralelo.
+      <h3>♾️ Renovación Silenciosa 24/7</h3>
+      Elimina el bloqueo de 5 minutos del Llavero CLI de macOS para que las renovaciones OAuth cada hora nunca fallen.
     </td>
     <td width="33%" valign="top">
-      <h3>🖥️ Integración Nativa en el Dock</h3>
-      Compila lanzadores nativos <code>.app</code> con iconos oficiales fijados en tu Dock y enlaza Escritorio, Documentos y Descargas automáticamente.
+      <h3>🚀 Instancias Duales y Triples</h3>
+      Instaladores en un clic para <b>Pro 2</b> y <b>Ultra (Instancia 3)</b> con integración nativa en el Dock y enlaces simbólicos automáticos.
     </td>
     <td width="33%" valign="top">
       <h3>🧹 Cero Intrusión y Reversible</h3>
-      Comparte el binario oficial sin duplicar gigabytes, nunca altera tu Llavero principal y deja la app original 100% intacta al desinstalar.
+      Comparte el binario oficial sin duplicar disco, nunca altera tu Llavero principal y deja la app original 100% intacta al desinstalar.
     </td>
   </tr>
 </table>
@@ -79,11 +81,11 @@
 | Característica | App Nativa Única | Solo `--user-data-dir` | **Antigravity TwoUsers** |
 | :--- | :---: | :---: | :---: |
 | Ventanas paralelas multi-cuenta (2× / 3×) | ❌ | ❌ (Colisión en backend) | ✅ **Pro 1 + Pro 2 + Ultra** |
+| "Abrir Antigravity" vuelve a la instancia exacta | — | ❌ (Siempre abre Principal) | ✅ **Enrutador URL nativo en Swift** |
 | Cambiar de cuenta sin cerrar sesión | ❌ | ❌ | ✅ **Sesiones aisladas permanentes** |
 | Renovación automática de tokens OAuth | ✅ | ❌ (Llavero bloqueado) | ✅ **Sin tiempo límite, estable 24/7** |
-| Sin contraseñas escritas en código | ✅ | — | ✅ **Secreto aleatorio 256 bits (`chmod 600`)** |
-| Llavero principal del sistema intacto | ✅ | ⚠️ | ✅ **Aislamiento exclusivo por subproceso** |
-| Acceso directo a repositorios locales | ✅ | ✅ | ✅ **Enlaces simbólicos automáticos** |
+| Sin contraseñas escritas en código | ✅ | — | ✅ **Secreto 256 bits (`chmod 600`)** |
+| Llavero principal del sistema intacto | ✅ | ⚠️ | ✅ **Aislamiento por subproceso** |
 
 ---
 
@@ -125,45 +127,38 @@ flowchart TD
 
 </details>
 
-### 🔬 3 Retos Técnicos Clave Resueltos
+---
 
-1. **Cero Colisión de Cuentas**: `--user-data-dir` solo cambia la caché de Electron mientras `language_server` sigue leyendo `$HOME/.gemini/`. Redirigir ambos elimina cualquier mezcla.
-2. **Callbacks OAuth sin Conflictos**: Cada instancia enlaza su propio puerto efímero local Loopback HTTP en un contexto limpio, evitando el error *"Further action is required"*.
-3. **Fin de Caídas de Modelos tras 1 Hora**: Desactivar el bloqueo por inactividad/suspensión con `security set-keychain-settings` junto con un secreto dinámico de 256 bits garantiza renovación continua.
+## 🧭 Enrutador Inteligente de Callbacks OAuth
+
+<p align="center">
+  <img src="../assets/router-flow.png" alt="Smart OAuth Callback Router" width="100%">
+</p>
+
+En macOS, `antigravity://` se asocia por defecto únicamente a la aplicación principal. Nuestra app nativa en Swift **`Antigravity Router.app`** (0 MB en reposo) resuelve esto con **Enrutamiento de Doble Señal**:
+1. **Señal 1 · Marca temporal de autenticación**: Detecta qué llavero aislado recibió un token OAuth en los últimos 15 segundos;
+2. **Señal 2 · Z-Order de ventanas**: Usa `CGWindowListCopyWindowInfo` (**cero avisos de permisos**) para localizar la ventana de Antigravity justo detrás del navegador;
+3. **Activación precisa**: Trae al frente exactamente la ventana **Primary / Pro 2 / Ultra** correspondiente y reenvía cualquier parámetro deep-link a ese PID.
 
 ---
 
 ## 🚀 Instalación Rápida
 
-### Requisitos
-* macOS 14+ (Apple Silicon M1–M4 o Intel)
-* Google Antigravity oficial instalado en `/Applications/Antigravity.app`
-
-### 1. Clonar el Repositorio
 ```bash
 git clone https://github.com/Kongxijun88/antigravity-twousers.git
 cd antigravity-twousers
+
+# Instalar Instancia 2 (Antigravity Pro 2)
+chmod +x install.sh && ./install.sh
+
+# Instalar Instancia 3 (Antigravity Ultra, opcional)
+chmod +x install-ultra.sh && ./install-ultra.sh
+
+# Instalar Enrutador Inteligente OAuth (recomendado)
+chmod +x install-router.sh && ./install-router.sh
 ```
 
-### 2. Instalar Instancia 2 (`Antigravity Pro 2`)
-```bash
-chmod +x install.sh
-./install.sh
-```
-
-### 3. Instalar Instancia 3 (`Antigravity Ultra`, Opcional)
-```bash
-chmod +x install-ultra.sh
-./install-ultra.sh
-```
-
-### 📋 Resumen de Instancias
-
-| Instancia | Aplicación (Dock / Aplicaciones) | Directorio Sandbox | Lanzador CLI |
-| :--- | :--- | :--- | :--- |
-| **Principal (Pro 1)** | `/Applications/Antigravity.app` | `~/.gemini/` (Por defecto) | — |
-| **Instancia 2 (Pro 2)** | `/Applications/Antigravity Pro 2.app` | `~/.antigravity-pro2-home/` | `./scripts/launch.sh` |
-| **Instancia 3 (Ultra)** | `/Applications/Antigravity Ultra.app` | `~/.antigravity-ultra-home/` | `./scripts/launch-ultra.sh` |
+> Diagnóstico rápido: `"/Applications/Antigravity Router.app/Contents/MacOS/AntigravityRouter" --status`
 
 ---
 
@@ -171,25 +166,29 @@ chmod +x install-ultra.sh
 
 ```text
 antigravity-twousers/
-├── install.sh                 # Instalador en un clic para Instancia 2 (Pro 2)
-├── uninstall.sh               # Desinstalador limpio para Instancia 2
-├── install-ultra.sh           # Instalador en un clic para Instancia 3 (Ultra)
-├── uninstall-ultra.sh         # Desinstalador limpio para Instancia 3
+├── install.sh                  # Instalador Instancia 2 (Pro 2)
+├── uninstall.sh                # Desinstalador Instancia 2
+├── install-ultra.sh            # Instalador Instancia 3 (Ultra)
+├── uninstall-ultra.sh          # Desinstalador Instancia 3
+├── install-router.sh           # Compila y registra el Enrutador URL en Swift
+├── uninstall-router.sh         # Restaura el manejador oficial antigravity://
+├── router/
+│   └── AntigravityRouter.swift # Código fuente del enrutador de doble señal
 ├── scripts/
-│   ├── launch.sh              # Ejecutor CLI independiente (Instancia 2)
-│   └── launch-ultra.sh        # Ejecutor CLI independiente (Instancia 3)
-├── assets/
-│   ├── banner.png             # Portada principal del repositorio
-│   └── architecture.png       # Infografía de arquitectura sandbox
-├── docs/                      # Documentación multilingüe (EN / JA / KO / ES / FR / PT)
-└── LICENSE                    # Licencia MIT
+│   ├── launch.sh               # Ejecutor CLI Instancia 2
+│   └── launch-ultra.sh         # Ejecutor CLI Instancia 3
+├── assets/                     # Portada, arquitectura, enrutador y flujo visual
+├── docs/                       # Documentación multilingüe (EN / JA / KO / ES / FR / PT)
+└── LICENSE                     # Licencia MIT
 ```
 
 ---
 
 ## 🔄 Protocolo de Relevo Multi-Agente
 
-Saca el máximo partido a **2× Pro + 1× Ultra** combinando **asignación por complejidad + relevo con contexto**:
+<p align="center">
+  <img src="../assets/workflow-showcase.png" alt="24/7 Multi-Agent Relay Workflow" width="100%">
+</p>
 
 | Instancia | Rol Recomendado |
 | :--- | :--- |
@@ -197,43 +196,26 @@ Saca el máximo partido a **2× Pro + 1× Ultra** combinando **asignación por c
 | **Antigravity Pro 2** | Relevo inmediato cuando Pro 1 alcanza el límite de 5 horas |
 | **Antigravity Ultra** | Refactorizaciones complejas, depuración profunda y arquitectura |
 
-### Relevo en 2 Pasos
-
-**Paso 1 — Guardar y entregar (Ventana activa):**
-```text
-Voy a cambiar en breve a otra cuenta para continuar este proyecto. Guarda todos los cambios, realiza un git commit limpio, genera un archivo HANDOVER.md con lo completado, decisiones clave y siguientes tareas, y escribe un mensaje breve que pueda pegar al siguiente agente.
-```
-
-**Paso 2 — Retomar al instante (Ventana Pro 2 / Ultra):**
-Abre la misma carpeta del proyecto con `File -> Open Folder` y pega:
-```text
-Lee HANDOVER.md y el último git commit para entender el estado actual del proyecto, y continúa con la siguiente tarea pendiente.
-```
-
 ---
 
 ## 🛡️ Seguridad y Privacidad
 
 | Control | Implementación |
 | :--- | :--- |
-| **Cero Contraseñas Fijas** | Cada instalación genera su propia clave aleatoria de 256 bits vía `openssl rand -hex 32` |
-| **Permisos Estrictos** | Tanto `.keychain_secret` como `login.keychain-db` se restringen a `chmod 600` (solo propietario) |
-| **Sistema Anfitrión Intacto** | El aislamiento ocurre únicamente con `export HOME` en el subproceso sin alterar el llavero global |
-| **100% Local y Auditable** | Scripts abiertos en Bash y Python sin telemetría ni conexiones externas |
+| **Cero Contraseñas Fijas** | Clave aleatoria de 256 bits generada localmente vía `openssl rand -hex 32` |
+| **Permisos Estrictos** | `.keychain_secret` y `login.keychain-db` restringidos a `chmod 600` |
+| **Sistema Anfitrión Intacto** | Aislamiento exclusivo vía `export HOME` en el subproceso |
+| **100% Local y Auditable** | Código abierto en Swift, Bash y Python sin telemetría |
 
 ---
 
 ## 🗑️ Desinstalación Limpia
 
 ```bash
-# Desinstalar Instancia 2 (Antigravity Pro 2)
-./uninstall.sh
-
-# Desinstalar Instancia 3 (Antigravity Ultra)
-./uninstall-ultra.sh
+./uninstall.sh          # Desinstalar Instancia 2
+./uninstall-ultra.sh    # Desinstalar Instancia 3
+./uninstall-router.sh   # Desinstalar Enrutador y restaurar antigravity://
 ```
-
-Detiene los procesos activos de esa instancia, elimina su `.app` y acceso del Dock, y te permite elegir entre borrar o conservar (bloqueado) su directorio sandbox. **Tu Antigravity original permanece intacto al 100%.**
 
 ---
 
@@ -252,21 +234,15 @@ Sí. Cada sandbox crea enlaces simbólicos automáticos hacia <code>~/Desktop</c
 </details>
 
 <details>
-<summary><b>P3: ¿Soporta mi Mac ejecutar las 3 instancias simultáneamente?</b></summary>
+<summary><b>P3: ¿Es normal que el navegador pregunte "¿Abrir Antigravity Router?" tras iniciar sesión?</b></summary>
 <br>
-<b>Sin problema.</b> Comparten un solo binario en disco y cada instancia consume ~500MB–800MB de RAM (~2GB–2.5GB en total para las 3), funcionando con total fluidez en cualquier Mac Apple Silicon de 16GB+.
+<b>Sí.</b> Marca "Permitir siempre" para que futuras autorizaciones regresen automáticamente a la ventana exacta desde la que iniciaste sesión.
 </details>
 
 <details>
-<summary><b>P4: ¿Pueden varias instancias abrir la misma carpeta Git a la vez?</b></summary>
+<summary><b>P4: ¿Soporta mi Mac ejecutar las 3 instancias simultáneamente?</b></summary>
 <br>
-<b>Sí.</b> Para evitar conflictos de edición simultánea, sigue el Protocolo de Relevo Multi-Agente descrito arriba.
-</details>
-
-<details>
-<summary><b>P5: ¿Las extensiones y temas se comparten o son independientes?</b></summary>
-<br>
-<b>Totalmente independientes.</b> Consejo: asigna un tema de color distinto a cada instancia para distinguir Pro 1, Pro 2 y Ultra de un vistazo.
+<b>Sin problema.</b> Comparten un solo binario y consumen ~2GB–2.5GB de RAM en total para las 3, funcionando con fluidez en cualquier Mac Apple Silicon de 16GB+.
 </details>
 
 ---

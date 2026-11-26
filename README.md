@@ -6,7 +6,7 @@
 
 <p align="center">
   <b>macOS 专属 Google Antigravity 双开 / 三开全物理沙盒管理器（Pro 1 · Pro 2 · Ultra）</b><br>
-  告别 5 小时速率限制，实现多账号零串号、256 位动态密钥守护、多窗口同时在线开发。
+  告别 5 小时速率限制 · 256 位动态密钥守护 · 智能 OAuth 回调路由 · 多窗口同时在线开发
 </p>
 
 <p align="center">
@@ -22,15 +22,17 @@
 <p align="center">
   <a href="https://apple.com"><img src="https://img.shields.io/badge/macOS-14%2B%20(Apple%20Silicon%20%26%20Intel)-000000?style=flat-square&logo=apple&logoColor=white" alt="macOS"></a>
   <img src="https://img.shields.io/badge/Instances-Pro%201%20%7C%20Pro%202%20%7C%20Ultra-6366F1?style=flat-square" alt="Instances">
+  <img src="https://img.shields.io/badge/OAuth%20Router-Smart%20Callback%20Routing-EC4899?style=flat-square" alt="Smart Router">
   <img src="https://img.shields.io/badge/Keychain-256--Bit%20Dynamic%20Secret-10B981?style=flat-square&logo=letsencrypt&logoColor=white" alt="Security">
-  <img src="https://img.shields.io/badge/Shell-Bash%20%7C%20AppleScript-22D3EE?style=flat-square&logo=gnubash&logoColor=black" alt="Shell">
+  <img src="https://img.shields.io/badge/Stack-Swift%20%7C%20Bash%20%7C%20AppleScript-22D3EE?style=flat-square&logo=swift&logoColor=black" alt="Stack">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-F59E0B?style=flat-square" alt="License"></a>
 </p>
 
 <p align="center">
   <a href="#-核心亮点">✨ 核心亮点</a> •
   <a href="#-方案对比">⚖️ 方案对比</a> •
-  <a href="#-物理沙盒隔离架构">🏗️ 技术架构</a> •
+  <a href="#-物理沙盒隔离架构">🏗️ 隔离架构</a> •
+  <a href="#-智能-oauth-回调路由smart-url-router">🧭 智能回调路由</a> •
   <a href="#-快速安装">🚀 快速安装</a> •
   <a href="#-多-agent-黄金接力工作流">🔄 接力工作流</a> •
   <a href="#-安全与隐私保障">🛡️ 安全机制</a> •
@@ -48,22 +50,22 @@
       同时重定向 <code>$HOME</code> 与 Electron <code>--user-data-dir</code>，前端缓存与 Go 后端 <code>language_server</code> 彻底分离，永不串号。
     </td>
     <td width="33%" valign="top">
-      <h3>🔐 256 位动态加密密钥</h3>
-      安装时通过 <code>openssl rand -hex 32</code> 为每个实例生成独一无二的 256 位随机钥匙串密码，<code>chmod 600</code> 严格保护，代码零硬编码。
+      <h3>🧭 智能 OAuth 回调路由</h3>
+      内置原生 Swift 编写的 <b>Antigravity Router</b>，点击浏览器「打开 Antigravity」后精准跳回发起授权的分身窗口（Pro 2 / Ultra），不再误跳主客户端。
     </td>
     <td width="33%" valign="top">
-      <h3>♾️ 后台无感自动续期</h3>
-      彻底根治命令行钥匙串 5 分钟自动锁定导致的 1 小时后 OAuth 失效问题，全天候稳定在线、模型不掉线。
+      <h3>🔐 256 位动态加密密钥</h3>
+      安装时通过 <code>openssl rand -hex 32</code> 为每个实例生成独一无二的 256 位随机钥匙串密码，<code>chmod 600</code> 严格保护，代码零硬编码。
     </td>
   </tr>
   <tr>
     <td width="33%" valign="top">
-      <h3>🚀 支持双开与三开</h3>
-      内置 <b>Pro 2</b> 与 <b>Ultra（第 3 实例）</b>一键脚本，原生支持 3 个独立窗口并排运行，各自独立消耗额度。
+      <h3>♾️ 后台无感自动续期</h3>
+      彻底根治命令行钥匙串 5 分钟自动锁定导致的 1 小时后 OAuth 失效问题，全天候稳定在线、模型不掉线。
     </td>
     <td width="33%" valign="top">
-      <h3>🖥️ 原生 Dock 图标集成</h3>
-      自动编译原生 macOS <code>.app</code> 启动器并精准插入程序坞（Dock），同时软链接桌面/文档/下载目录，秒开本地代码库。
+      <h3>🚀 支持双开与三开</h3>
+      内置 <b>Pro 2</b> 与 <b>Ultra（第 3 实例）</b>一键脚本，原生集成程序坞（Dock）图标并自动软链接桌面/文档/下载目录。
     </td>
     <td width="33%" valign="top">
       <h3>🧹 无侵入、一键还原</h3>
@@ -79,11 +81,11 @@
 | 特性对比 | 原生单账号 | 仅改 `--user-data-dir` | **Antigravity TwoUsers (本项目)** |
 | :--- | :---: | :---: | :---: |
 | 多账号同时在线（双开 / 三开） | ❌ | ❌（后端自动串号） | ✅ **完全支持（Pro 1 + Pro 2 + Ultra）** |
+| 浏览器授权后精准跳回对应分身窗口 | — | ❌（强制跳回主客户端） | ✅ **原生 Swift 智能 URL 路由精准回跳** |
 | 切换账号免登出 / 免重新授权 | ❌ | ❌ | ✅ **各自永久保持独立登录态** |
 | OAuth 令牌后台自动刷新（不掉线） | ✅ | ❌（钥匙串锁定报错） | ✅ **禁用超时锁死，24h 稳定续期** |
 | 密码安全（无硬编码明文密码） | ✅ | — | ✅ **本机 256 位随机密钥 + `chmod 600`** |
 | 不污染宿主系统默认钥匙串 | ✅ | ⚠️ | ✅ **仅在独立子进程沙盒内生效** |
-| 无缝访问桌面与本地 Git 仓库 | ✅ | ✅ | ✅ **自动软链接 Desktop / Documents / Downloads** |
 
 ---
 
@@ -125,11 +127,20 @@ flowchart TD
 
 </details>
 
-### 🔬 攻克的 3 大底层技术难题
+---
 
-1. **解决“仅改 `--user-data-dir` 导致自动串号”**：Antigravity 由 Electron 前端与 Go `language_server` 后端组成。后端服务直接读取 `$HOME/.gemini/` 与 Keychain；本项目在独立子进程中同步重定向 `$HOME` 与 `--user-data-dir`，彻底切断账号串流。
-2. **解决“多实例 OAuth 网页回调冲突”**：Antigravity 登录依赖本地临时 Loopback HTTP 端口接收授权回调。每个分身在独立上下文中监听专属端口，避免出现 *"Further action is required"* 冲突。
-3. **解决“运行数小时后模型变灰 / 提示无额度”**：Google OAuth `access_token` 有效期为 1 小时，过期后需读取 Keychain 中的 `refresh_token` 自动续期。macOS 命令行创建的钥匙串默认开启 **300 秒无操作自动锁死** 与 **休眠锁死**；本项目通过 `security set-keychain-settings` 解除超时锁死，并配合本机 256 位随机密钥实现无感续期。
+## 🧭 智能 OAuth 回调路由（Smart URL Router）
+
+<p align="center">
+  <img src="assets/router-flow.png" alt="Smart OAuth Callback Router" width="100%">
+</p>
+
+在 macOS 上，系统自定义协议 `antigravity://` 默认绑定到主客户端 `/Applications/Antigravity.app`。当你从 **Pro 2** 或 **Ultra** 发起登录并在浏览器点击 **「打开 Antigravity」** 时，macOS 会默认唤醒主客户端窗口。
+
+本项目内置原生 Swift 轻量路由程序 **`Antigravity Router.app`**（后台静默运行、平时 0 内存占用），通过**双信号精准判定机制**彻底解决该痛点：
+1. **信号 1 · 凭据落盘时间戳（最高精度）**：检测各隔离沙盒专属钥匙串最近 15 秒内的写入时间，谁刚刚完成 OAuth Token 写入，立即锁定谁；
+2. **信号 2 · 窗口层叠顺序（实时兜底）**：通过 macOS 原生 `CGWindowListCopyWindowInfo`（**零权限弹窗**）读取浏览器正下方排在最前的 Antigravity 进程 PID；
+3. **精准唤醒与透传**：毫秒级将对应的 **Primary / Pro 2 / Ultra** 窗口拉至前台，若 `antigravity://` 携带深链接参数还会一并精准透传给目标 PID。
 
 ---
 
@@ -138,6 +149,7 @@ flowchart TD
 ### 前置要求
 * macOS 14+（支持 Apple Silicon M1–M4 与 Intel Mac）
 * 已在 `/Applications/Antigravity.app` 安装官方 Google Antigravity 客户端
+* 如需安装智能回调路由，需系统具备 `swiftc`（Xcode Command Line Tools）
 
 ### 1. 克隆项目
 ```bash
@@ -157,15 +169,22 @@ chmod +x install-ultra.sh
 ./install-ultra.sh
 ```
 
-### 📋 实例布局总览
+### 4. 一键安装智能 OAuth 回调路由（推荐）
+```bash
+chmod +x install-router.sh
+./install-router.sh
+```
 
-| 实例名称 | 启动方式（Dock / 应用程序） | 隔离沙盒目录 | 命令行调试脚本 |
+> 可随时运行 `"/Applications/Antigravity Router.app/Contents/MacOS/AntigravityRouter" --status` 查看当前运行实例与智能路由目标诊断。
+
+### 📋 实例与组件总览
+
+| 组件 / 实例 | 应用程序路径 | 隔离沙盒目录 | 命令行脚本 |
 | :--- | :--- | :--- | :--- |
 | **主实例 (Pro 1)** | `/Applications/Antigravity.app` | `~/.gemini/`（系统默认） | — |
 | **实例 2 (Pro 2)** | `/Applications/Antigravity Pro 2.app` | `~/.antigravity-pro2-home/` | `./scripts/launch.sh` |
 | **实例 3 (Ultra)** | `/Applications/Antigravity Ultra.app` | `~/.antigravity-ultra-home/` | `./scripts/launch-ultra.sh` |
-
-> 首次点击程序坞中的 **`Antigravity Pro 2`** 或 **`Antigravity Ultra`**，窗口将以完全纯净的未登录状态启动，直接登录对应的 Google Pro / Ultra 账号即可永久保存状态。
+| **智能路由 (Router)** | `/Applications/Antigravity Router.app` | 无（按需触发，静默退出） | `./install-router.sh` |
 
 ---
 
@@ -177,12 +196,18 @@ antigravity-twousers/
 ├── uninstall.sh               # 一键安全卸载实例 2
 ├── install-ultra.sh           # 一键安装实例 3 (Antigravity Ultra)
 ├── uninstall-ultra.sh         # 一键安全卸载实例 3
+├── install-router.sh          # 编译并注册原生 Swift 智能 OAuth 回调路由
+├── uninstall-router.sh        # 卸载路由并一键恢复官方默认 antigravity:// 协议
+├── router/
+│   └── AntigravityRouter.swift # 原生 macOS 双信号智能 URL 路由源码
 ├── scripts/
-│   ├── launch.sh              # 实例 2 命令行独立启动器（支持传参调试）
-│   └── launch-ultra.sh        # 实例 3 命令行独立启动器（支持传参调试）
+│   ├── launch.sh              # 实例 2 命令行独立启动器
+│   └── launch-ultra.sh        # 实例 3 命令行独立启动器
 ├── assets/
-│   ├── banner.png             # 项目视觉横幅
-│   └── architecture.png       # 物理沙盒隔离架构图
+│   ├── banner.png             # 项目旗舰视觉横幅
+│   ├── architecture.png       # 物理沙盒隔离架构图
+│   ├── router-flow.png        # 智能 OAuth 回调路由流程图
+│   └── workflow-showcase.png  # 24/7 多 Agent 接力工作流展示图
 ├── docs/                      # 多语言文档 (EN / JA / KO / ES / FR / PT)
 └── LICENSE                    # MIT 开源协议
 ```
@@ -190,6 +215,10 @@ antigravity-twousers/
 ---
 
 ## 🔄 多 Agent 黄金接力工作流
+
+<p align="center">
+  <img src="assets/workflow-showcase.png" alt="24/7 Multi-Agent Relay Workflow" width="100%">
+</p>
 
 拥有多个账号（如 **2 个 Pro + 1 个 Ultra**）时，推荐使用**任务分级 + 上下文无损接力协议（Relay Protocol）**，实现 24 小时不间断开发：
 
@@ -221,7 +250,7 @@ antigravity-twousers/
 | **零硬编码密码** | 代码与 Git 历史中绝无写死密码，每次安装现场调用 `openssl rand -hex 32` 生成独立 256 位随机密钥 |
 | **文件权限隔离** | 密钥文件 `.keychain_secret` 与钥匙串数据库 `login.keychain-db` 均强制设置为 `chmod 600`（仅限本机当前用户读写） |
 | **宿主零污染** | 启动器仅在子进程中通过 `export HOME` 隔离环境，**绝不修改** macOS 宿主用户的默认登录钥匙串 |
-| **零遥测 / 纯本地** | 全部脚本均为透明可读的开源 Bash / Python 代码，无任何网络上传或外部依赖 |
+| **零遥测 / 纯本地** | 全部脚本与 Swift 路由均为透明可读的开源代码，无任何网络上传、无第三方闭源依赖 |
 
 ---
 
@@ -233,6 +262,9 @@ antigravity-twousers/
 
 # 卸载实例 3 (Antigravity Ultra)
 ./uninstall-ultra.sh
+
+# 卸载智能路由并恢复官方默认 antigravity:// 协议
+./uninstall-router.sh
 ```
 
 卸载脚本将自动终止对应分身进程、移除 `/Applications` 内的 `.app` 与程序坞图标，并询问是否彻底销毁对应的沙盒目录与专属钥匙串（若保留数据，将自动对钥匙串执行上锁保护）。**原版 Antigravity 与主账号 100% 不受任何影响。**
@@ -254,21 +286,21 @@ antigravity-twousers/
 </details>
 
 <details>
-<summary><b>Q3: 3 个实例同时运行，Mac 内存和性能吃得消吗？</b></summary>
+<summary><b>Q3: 安装智能回调路由后，浏览器提示“要打开 Antigravity Router 吗？”是否正常？</b></summary>
+<br>
+<b>完全正常！</b> 这是因为 <code>Antigravity Router.app</code> 已成功接管 <code>antigravity://</code> 协议。勾选「始终允许」后，今后从任何客户端发起授权都会自动无感跳回正确的窗口。
+</details>
+
+<details>
+<summary><b>Q4: 3 个实例同时运行，Mac 内存和性能吃得消吗？</b></summary>
 <br>
 <b>非常轻松。</b> 三个实例共享同一份官方客户端二进制文件，几乎不额外占用硬盘空间；每个实例运行内存约 500MB–800MB，3 开总计约 2GB–2.5GB，16GB 及以上内存的 Apple Silicon Mac 可全天候流畅并行。
 </details>
 
 <details>
-<summary><b>Q4: 多个实例可以同时打开同一个 Git 项目文件夹吗？</b></summary>
-<br>
-<b>可以。</b> 代码文件位于真实的本地磁盘中。建议搭配上文的【多 Agent 黄金接力工作流】交替操作，避免两个 AI Agent 同时写入同一文件造成未保存冲突。
-</details>
-
-<details>
 <summary><b>Q5: 扩展插件、主题与快捷键配置是共享还是独立的？</b></summary>
 <br>
-<b>完全独立。</b> 每个实例拥有专属的插件目录与偏好设置，你可以为主力账号、备用账号与 Ultra 账号定制不同的主题颜色（强烈建议设置不同主题色，肉眼一眼区分窗口！）。
+<b>完全独立。</b> 每个实例拥有专属的插件目录与偏好设置，强烈建议为主力、Pro 2 与 Ultra 分别设置不同颜色主题，一眼即可区分窗口！
 </details>
 
 ---
